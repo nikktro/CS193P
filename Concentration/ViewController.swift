@@ -18,17 +18,20 @@ class ViewController: UIViewController {
 
   @IBOutlet weak var flipCountLabel: UILabel!
   
+  @IBOutlet var cardButtons: [UIButton]!
+  
+  var emojiChoices = ["👻","🎃","👻","🎃"]
+  
   @IBAction func touchCard(_ sender: UIButton) {
     flipCount += 1
-    flipCard(with: "👻", on: sender)
+    if let cardNumber = cardButtons.firstIndex(of: sender) {
+      flipCard(with: emojiChoices[cardNumber], on: sender)
+      print("CardNumber = \(cardNumber)")
+    } else {
+      print("Card is not in array CardButtons")
+    }
   }
-  
-  @IBAction func touchSecondCard(_ sender: UIButton) {
-    flipCount += 1
-    flipCard(with: "🎃", on: sender)
-  }
-  
-  
+
   func flipCard(with emoji: String, on button: UIButton) {
     print("flipCard with emoji: \(emoji)")
     if button.currentTitle == emoji {
@@ -39,7 +42,4 @@ class ViewController: UIViewController {
       button.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
     }
   }
-
-
 }
-
