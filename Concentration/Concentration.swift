@@ -17,11 +17,12 @@ class Concentration {
   }
   
   init(numberOfPairsOfCards: Int) {
-    for identifier in 0..<numberOfPairsOfCards {
-      let card = Card(identifier: identifier)
+    for _ in 0..<numberOfPairsOfCards {
+      let card = Card()
       cards.append(card)
       cards.append(card)
     }
+    // TODO: Shuffle the cards
   }
   
 }
