@@ -22,6 +22,8 @@ class ViewController: UIViewController {
   
   @IBOutlet var cardButtons: [UIButton]!
   
+  //MARK: Handle Card Touch Behaviour
+  
   @IBAction func touchCard(_ sender: UIButton) {
     flipCount += 1
     if let cardNumber = cardButtons.firstIndex(of: sender) {
@@ -32,12 +34,16 @@ class ViewController: UIViewController {
     }
   }
   
+  //MARK: Start Newgame
+  
   @IBAction func newGameButton(_ sender: UIButton) {
     flipCount = 0
     emojiChoices = ["👻","🎃","😈","🍂","🍬","🍭","😱","🧙‍♀️","🧟‍♂️"]
     game = Concentration(numberOfPairsOfCards: (cardButtons.count + 1) / 2 )
     updateViewFromModel()
   }
+  
+  //MARK: Update View from Model
   
   func updateViewFromModel() {
     for index in 0..<cardButtons.count {
@@ -52,6 +58,8 @@ class ViewController: UIViewController {
       }
     }
   }
+  
+  //MARK: Emoji Fill
   
   var emojiChoices = ["👻","🎃","😈","🍂","🍬","🍭","😱","🧙‍♀️","🧟‍♂️"]
   var emoji = [Int:String]()
