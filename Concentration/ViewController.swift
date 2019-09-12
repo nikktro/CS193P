@@ -32,6 +32,13 @@ class ViewController: UIViewController {
     }
   }
   
+  @IBAction func newGameButton(_ sender: UIButton) {
+    flipCount = 0
+    emojiChoices = ["👻","🎃","😈","🍂","🍬","🍭","😱","🧙‍♀️","🧟‍♂️"]
+    game = Concentration(numberOfPairsOfCards: (cardButtons.count + 1) / 2 )
+    updateViewFromModel()
+  }
+  
   func updateViewFromModel() {
     for index in 0..<cardButtons.count {
       let button = cardButtons[index]
